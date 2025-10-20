@@ -1,0 +1,101 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1f3b73, #2c7da0);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+#searchInput {
+    width: 350px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    display: block;
+    margin: 25px auto;
+    transition: 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#searchInput:focus {
+    transform: scale(1.05);
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Card Style */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+}
+
+/* Card Title */
+.card h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.card a {
+    display: block;
+    margin: 10px 0;
+    padding: 12px;
+    text-decoration: none;
+    background: linear-gradient(45deg, #4c84c4, #3aa8ff);
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.card a:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #3aa8ff, #4c84c4);
+}
+
+footer {
+    background: #1f3b73;
+    color: rgb(186, 184, 204);
+    text-align: center;
+    padding: 21px;
+    font-size: 18px;
+    position: relative;
+    margin-top: 20px;
+}
+
