@@ -1,26 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("searchInput");
-    const cards = document.querySelectorAll(".card");
 
-    let debounceTimer;
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const themeToggle = document.getElementById("themeToggle");
+  const toggleIntentBtn = document.getElementById("toggleIntentBtn");
+  const intentSection = document.getElementById("intentSection");
 
-    searchInput.addEventListener("input", () => {
-        clearTimeout(debounceTimer);
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.documentElement.dataset.theme = savedTheme;
+  }
 
-        debounceTimer = setTimeout(() => {
-            const query = searchInput.value.toLowerCase().trim();
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.documentElement.dataset.theme;
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+  });
 
-            cards.forEach(card => {
-                const title = card.querySelector("h2")?.innerText.toLowerCase() || "";
-                const linksText = Array.from(card.querySelectorAll("a"))
-                    .map(link => link.innerText.toLowerCase())
-                    .join(" ");
-
-                const isMatch =
-                    title.includes(query) || linksText.includes(query);
-
-                card.classList.toggle("hidden", !isMatch);
-            });
-        }, 200); // debounce delay
+  if (toggleIntentBtn && intentSection) {
+    toggleIntentBtn.addEventListener("click", () => {
+      intentSection.classList.toggle("hidden");
     });
+  }
+
+  let searchTimeout;
+
+  searchInput.addEventListener("input", () => {
+    clearTimeout(searchTimeout);
+
+    searchTimeout = setTimeout(() => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const cardText = card.innerText.toLowerCase();
+        card.classList.toggle("hidden", !cardText.includes(query));
+      });
+    }, 150);
+  });
+
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+      // Update active button UI
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const selectedCategory = button.dataset.filter;
+
+      cards.forEach(card => {
+        const cardCategory = card.dataset.category;
+
+        if (selectedCategory === "all" || cardCategory === selectedCategory) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  searchInput.addEventListener("search", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    document.querySelector('[data-filter="all"]').classList.add("active");
+
+    cards.forEach(card => card.classList.remove("hidden"));
+  });
+
 });
