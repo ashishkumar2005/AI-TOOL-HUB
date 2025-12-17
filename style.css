@@ -1,101 +1,135 @@
-/* Global Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1f3b73, #2c7da0);
+/* ================= RESET & VARIABLES ================= */
+:root {
+    --primary: #3aa8ff;
+    --secondary: #1f3b73;
+    --bg-gradient: linear-gradient(135deg, #1f3b73, #2c7da0);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --text-light: #ffffff;
+    --text-muted: #dcdcdc;
+    --radius: 16px;
+    --transition: 0.3s ease;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header */
-header {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    padding: 25px;
-    font-size: 32px;
-    font-weight: bold;
-    backdrop-filter: blur(10px);
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-light);
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+    padding: 60px 20px 40px;
     text-align: center;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
 }
 
-/* Search Bar */
+.site-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 1px;
+}
+
+.site-header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* ================= SEARCH ================= */
+.search-section {
+    margin: 30px auto;
+    text-align: center;
+}
+
 #searchInput {
-    width: 350px;
-    padding: 12px 18px;
-    font-size: 16px;
+    width: min(90%, 420px);
+    padding: 14px 20px;
+    border-radius: 40px;
     border: none;
-    border-radius: 30px;
     outline: none;
-    display: block;
-    margin: 25px auto;
-    transition: 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 #searchInput:focus {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-/* Container */
+/* ================= MAIN GRID ================= */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
 }
 
-/* Card Style */
+/* ================= CARD ================= */
 .card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    width: 300px;
-    padding: 25px;
-    border-radius: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius);
+    padding: 24px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    color: white;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.4);
 }
 
-/* Card Title */
 .card h2 {
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
 }
 
-/* Buttons */
+/* ================= LINKS ================= */
 .card a {
     display: block;
-    margin: 10px 0;
     padding: 12px;
-    text-decoration: none;
-    background: linear-gradient(45deg, #4c84c4, #3aa8ff);
-    color: white;
+    margin: 10px 0;
     border-radius: 30px;
-    transition: 0.3s;
-    font-weight: bold;
+    text-decoration: none;
+    font-weight: 500;
+    background: linear-gradient(45deg, var(--primary), #6bc1ff);
+    color: white;
+    transition: var(--transition);
 }
 
 .card a:hover {
     transform: scale(1.05);
-    background: linear-gradient(45deg, #3aa8ff, #4c84c4);
+    opacity: 0.95;
 }
 
-footer {
-    background: #1f3b73;
-    color: rgb(186, 184, 204);
+/* ================= FOOTER ================= */
+.site-footer {
+    margin-top: 40px;
+    padding: 24px;
     text-align: center;
-    padding: 21px;
-    font-size: 18px;
-    position: relative;
-    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+    .site-header {
+        padding: 40px 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
