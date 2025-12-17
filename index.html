@@ -1,125 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content=" AI Tools Hub – Discover the best AI tools for design, coding, marketing, education, and productivity." />
-    
-    <title>AI Tools Hub</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools Hub | 90+ AI Tools Directory</title>
+  <meta name="description" content="Discover 90+ AI tools across 30 categories." />
+  <meta name="author" content="Ashish Kumar" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+<header class="site-header">
+  <div>
+    <h1>AI Tools Hub</h1>
+    <p>One platform. Every AI solution you need 🚀</p>
+  </div>
+  <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+</header>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header">
-        <div class="header-content">
-            <h1>AI Tools Hub</h1>
-            <p>Your one-stop platform to explore powerful AI tools 🚀</p>
-        </div>
-    </header>
+<section class="footer-action">
+  <button id="toggleIntentBtn">🤔 What do you want to do today?</button>
+</section>
 
-    <!-- ================= SEARCH ================= -->
-    <section class="search-section">
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Search AI tools or categories..." 
-            aria-label="Search AI Tools"
-        />
-    </section>
+<section id="intentSection" class="intent-section hidden">
+  <h2>What do you want to do today?</h2>
+  <div class="intent-buttons">
+    <button>Create</button>
+    <button>Write</button>
+    <button>Build</button>
+    <button>Grow</button>
+    <button>Learn</button>
+  </div>
+</section>
 
-    <!-- ================= MAIN CONTENT ================= -->
-    <main class="container">
+<section class="search-section">
+  <input id="searchInput" type="text" placeholder="Search AI tools or categories..." />
+</section>
 
-        <!-- Card -->
-        <section class="card">
-            <h2>🖼 Image Generation</h2>
-            <a href="https://www.bing.com/create" target="_blank">Bing Image Creator</a>
-            <a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
-            <a href="https://www.midjourney.com" target="_blank">MidJourney</a>
-        </section>
+<section class="filter-section">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="image">Image</button>
+  <button class="filter-btn" data-filter="video">Video</button>
+  <button class="filter-btn" data-filter="text">Text</button>
+  <button class="filter-btn" data-filter="audio">Audio</button>
+  <button class="filter-btn" data-filter="coding">Coding</button>
+  <button class="filter-btn" data-filter="design">Design</button>
+  <button class="filter-btn" data-filter="marketing">Marketing</button>
+  <button class="filter-btn" data-filter="education">Education</button>
+  <button class="filter-btn" data-filter="productivity">Productivity</button>
+</section>
 
-        <section class="card">
-            <h2>🎬 Video Creation</h2>
-            <a href="https://pictory.ai" target="_blank">Pictory</a>
-            <a href="https://invideo.io" target="_blank">InVideo</a>
-            <a href="https://www.d-id.com" target="_blank">D-ID</a>
-        </section>
+<main class="container">
 
-        <section class="card">
-            <h2>✍ Text & Writing</h2>
-            <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-            <a href="https://writesonic.com" target="_blank">WriteSonic</a>
-            <a href="https://copy.ai" target="_blank">Copy AI</a>
-        </section>
+<section class="card" data-category="image">
+<h2>🖼 Image Generation</h2>
+<a href="https://midjourney.com" target="_blank">MidJourney</a>
+<a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
+<a href="https://bing.com/create" target="_blank">Bing Image Creator</a>
+</section>
+    
+<section class="card" data-category="image">
+<h2>🧩 Image Editing</h2>
+<a href="https://remove.bg" target="_blank">Remove.bg</a>
+<a href="https://cleanup.pictures" target="_blank">Cleanup Pictures</a>
+<a href="https://photoshop.adobe.com" target="_blank">Adobe Photoshop AI</a>
+</section>
 
-        <section class="card">
-            <h2>🎵 Music & Voice</h2>
-            <a href="https://suno.ai" target="_blank">Suno AI</a>
-            <a href="https://uberduck.ai" target="_blank">UberDuck</a>
-            <a href="https://murf.ai" target="_blank">Murf AI</a>
-        </section>
+<section class="card" data-category="video">
+<h2>🎬 Video Generation</h2>
+<a href="https://pictory.ai" target="_blank">Pictory</a>
+<a href="https://runwayml.com" target="_blank">Runway</a>
+<a href="https://invideo.io" target="_blank">InVideo</a>
+</section>
+    
+<section class="card" data-category="video">
+<h2>🎞 Video Editing</h2>
+<a href="https://veed.io" target="_blank">VEED</a>
+<a href="https://descript.com" target="_blank">Descript</a>
+<a href="https://kapwing.com" target="_blank">Kapwing</a>
+</section>
 
-        <section class="card">
-            <h2>🧠 AI Coding Tools</h2>
-            <a href="https://replit.com/ai" target="_blank">Replit AI</a>
-            <a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a>
-            <a href="https://cursor.sh" target="_blank">Cursor AI</a>
-        </section>
+<section class="card" data-category="text">
+<h2>✍ Writing Assistants</h2>
+<a href="https://chatgpt.com" target="_blank">ChatGPT</a>
+<a href="https://writesonic.com" target="_blank">WriteSonic</a>
+<a href="https://copy.ai" target="_blank">Copy.ai</a>
+</section>
 
-        <section class="card">
-            <h2>🎨 Graphic Design</h2>
-            <a href="https://www.canva.com" target="_blank">Canva</a>
-            <a href="https://www.adobe.com" target="_blank">Adobe</a>
-            <a href="https://www.figma.com" target="_blank">Figma</a>
-        </section>
+<section class="card" data-category="text">
+<h2>📝 SEO & Blogging</h2>
+<a href="https://jasper.ai" target="_blank">Jasper</a>
+<a href="https://surferseo.com" target="_blank">SurferSEO</a>
+<a href="https://neuronwriter.com" target="_blank">NeuronWriter</a>
+</section>
 
-        <section class="card">
-            <h2>📈 Marketing & Social Media</h2>
-            <a href="https://buffer.com/ai" target="_blank">Buffer AI</a>
-            <a href="https://vidiq.com" target="_blank">VidIQ</a>
-            <a href="https://copy.ai" target="_blank">Copy.ai</a>
-        </section>
+<section class="card" data-category="audio">
+<h2>🎵 Music Generation</h2>
+<a href="https://suno.ai" target="_blank">Suno</a>
+<a href="https://boomy.com" target="_blank">Boomy</a>
+<a href="https://soundraw.io" target="_blank">Soundraw</a>
+</section>
 
-        <section class="card">
-            <h2>📚 Education & Learning</h2>
-            <a href="https://notion.com/ai" target="_blank">Notion AI</a>
-            <a href="https://tome.app" target="_blank">Tome AI</a>
-            <a href="https://slidesai.io" target="_blank">SlidesAI</a>
-        </section>
+<section class="card" data-category="audio">
+<h2>🎙 Voice & TTS</h2>
+<a href="https://murf.ai" target="_blank">Murf AI</a>
+<a href="https://play.ht" target="_blank">Play.ht</a>
+<a href="https://uberduck.ai" target="_blank">UberDuck</a>
+</section>
 
-        <section class="card">
-            <h2>🤖 AI Chatbots</h2>
-            <a href="https://chatgpt.com" target="_blank">ChatGPT</a>
-            <a href="https://www.perplexity.ai" target="_blank">Perplexity</a>
-            <a href="https://gemini.google.com" target="_blank">Gemini</a>
-        </section>
+<section class="card" data-category="coding">
+<h2>🧠 Coding Assistants</h2>
+<a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a>
+<a href="https://replit.com/ai" target="_blank">Replit AI</a>
+<a href="https://cursor.sh" target="_blank">Cursor</a>
+</section>
 
-        <section class="card">
-            <h2>📊 Presentations (PPT)</h2>
-            <a href="https://presenti.ai" target="_blank">Presenti</a>
-            <a href="https://www.aippt.com" target="_blank">AI PPT</a>
-            <a href="https://www.popai.pro" target="_blank">Pop AI</a>
-        </section>
+<section class="card" data-category="coding">
+<h2>🧪 Code Review</h2>
+<a href="https://sonarqube.org" target="_blank">SonarQube</a>
+<a href="https://codacy.com" target="_blank">Codacy</a>
+<a href="https://snyk.io" target="_blank">Snyk</a>
+</section>
 
-        <section class="card">
-            <h2>🎓 Learning Platforms</h2>
-            <a href="https://www.tutorialspoint.com" target="_blank">TutorialsPoint</a>
-            <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
-            <a href="https://www.geeksforgeeks.org" target="_blank">GeeksforGeeks</a>
-        </section>
+<section class="card" data-category="design">
+<h2>🎨 Graphic Design</h2>
+<a href="https://canva.com" target="_blank">Canva</a>
+<a href="https://figma.com" target="_blank">Figma</a>
+<a href="https://adobe.com/firefly" target="_blank">Adobe Firefly</a>
+</section>
 
-    </main>
+<section class="card" data-category="design">
+<h2>🖌 Logo & Branding</h2>
+<a href="https://looka.com" target="_blank">Looka</a>
+<a href="https://brandmark.io" target="_blank">Brandmark</a>
+<a href="https://logoai.com" target="_blank">LogoAI</a>
+</section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-        <p>© 2024 AI Tools Hub. All Rights Reserved.</p>
-        <p>Developed by <strong>Ashish Kumar</strong></p>
-    </footer>
+<!-- 13 Marketing -->
+<section class="card" data-category="marketing">
+<h2>📈 Marketing Automation</h2>
+<a href="https://hubspot.com" target="_blank">HubSpot</a>
+<a href="https://buffer.com/ai" target="_blank">Buffer AI</a>
+<a href="https://marketo.com" target="_blank">Marketo</a>
+</section>
+    
+<section class="card" data-category="marketing">
+<h2>📣 Social Media</h2>
+<a href="https://vidiq.com" target="_blank">VidIQ</a>
+<a href="https://later.com" target="_blank">Later</a>
+<a href="https://hypefury.com" target="_blank">Hypefury</a>
+</section>
 
-    <!-- JS -->
-    <script src="script.js"></script>
+<section class="card" data-category="education">
+<h2>📚 Education & Learning</h2>
+<a href="https://notion.com/ai" target="_blank">Notion AI</a>
+<a href="https://tome.app" target="_blank">Tome</a>
+<a href="https://slidesai.io" target="_blank">SlidesAI</a>
+</section>
+
+<section class="card" data-category="education">
+<h2>🎓 Student Tools</h2>
+<a href="https://khanacademy.org" target="_blank">Khan Academy</a>
+<a href="https://coursera.org" target="_blank">Coursera</a>
+<a href="https://udemy.com" target="_blank">Udemy</a>
+</section>
+
+<section class="card" data-category="productivity">
+<h2>🛠 Productivity</h2>
+<a href="https://taskade.com" target="_blank">Taskade</a>
+<a href="https://mem.ai" target="_blank">Mem AI</a>
+<a href="https://clickup.com" target="_blank">ClickUp AI</a>
+</section>
+    
+<section class="card" data-category="productivity">
+<h2>⏱ Time Management</h2>
+<a href="https://motion.app" target="_blank">Motion</a>
+<a href="https://reclaim.ai" target="_blank">Reclaim</a>
+<a href="https://clockwise.so" target="_blank">Clockwise</a>
+</section>
+
+<section class="card" data-category="research">
+<h2>🧪 Research Tools</h2>
+<a href="https://elicit.org" target="_blank">Elicit</a>
+<a href="https://scite.ai" target="_blank">Scite</a>
+<a href="https://consensus.app" target="_blank">Consensus</a>
+</section>
+
+<section class="card" data-category="research">
+<h2>📊 Data Analysis</h2>
+<a href="https://powerbi.microsoft.com" target="_blank">Power BI</a>
+<a href="https://tableau.com" target="_blank">Tableau</a>
+<a href="https://alteryx.com" target="_blank">Alteryx</a>
+</section>
+
+<section class="card" data-category="business">
+<h2>💼 Business Tools</h2>
+<a href="https://salesforce.com" target="_blank">Salesforce</a>
+<a href="https://zoho.com" target="_blank">Zoho</a>
+<a href="https://freshworks.com" target="_blank">Freshworks</a>
+</section>
+    
+<section class="card" data-category="career">
+<h2>📄 Resume & Career</h2>
+<a href="https://resume.io" target="_blank">Resume.io</a>
+<a href="https://kickresume.com" target="_blank">KickResume</a>
+<a href="https://enhancv.com" target="_blank">Enhancv</a>
+</section>
+
+<section class="card" data-category="support">
+<h2>💬 Customer Support</h2>
+<a href="https://intercom.com" target="_blank">Intercom</a>
+<a href="https://zendesk.com" target="_blank">Zendesk</a>
+<a href="https://tidio.com" target="_blank">Tidio</a>
+</section>
+
+<section class="card" data-category="security">
+<h2>🔐 Cybersecurity</h2>
+<a href="https://darktrace.com" target="_blank">Darktrace</a>
+<a href="https://crowdstrike.com" target="_blank">CrowdStrike</a>
+<a href="https://sentinelone.com" target="_blank">SentinelOne</a>
+</section>
+
+<section class="card" data-category="automation">
+<h2>⚙ Automation</h2>
+<a href="https://zapier.com" target="_blank">Zapier</a>
+<a href="https://make.com" target="_blank">Make</a>
+<a href="https://ifttt.com" target="_blank">IFTTT</a>
+</section>
+
+<section class="card" data-category="finance">
+<h2>💰 Finance</h2>
+<a href="https://pilot.com" target="_blank">Pilot</a>
+<a href="https://zoho.com/books" target="_blank">Zoho Books</a>
+<a href="https://fylehq.com" target="_blank">Fyle</a>
+</section>
+
+<section class="card" data-category="health">
+<h2>🩺 Healthcare</h2>
+<a href="https://babylonhealth.com" target="_blank">Babylon Health</a>
+<a href="https://pathai.com" target="_blank">PathAI</a>
+<a href="https://ibm.com/watson-health" target="_blank">IBM Watson Health</a>
+</section>
+
+<section class="card" data-category="hr">
+<h2>🧑‍💼 HR & Hiring</h2>
+<a href="https://hireez.com" target="_blank">HireEZ</a>
+<a href="https://pymetrics.ai" target="_blank">Pymetrics</a>
+<a href="https://zoho.com/recruit" target="_blank">Zoho Recruit</a>
+</section>
+
+<section class="card" data-category="ecommerce">
+<h2>🛒 E-commerce</h2>
+<a href="https://shopify.com/magic" target="_blank">Shopify Magic</a>
+<a href="https://nosto.com" target="_blank">Nosto</a>
+<a href="https://dynamicyield.com" target="_blank">Dynamic Yield</a>
+</section>
+
+<section class="card" data-category="gaming">
+<h2>🎮 Gaming & Simulation</h2>
+<a href="https://inworld.ai" target="_blank">Inworld AI</a>
+<a href="https://modl.ai" target="_blank">modl.ai</a>
+<a href="https://charisma.ai" target="_blank">Charisma AI</a>
+</section>
+</main>
+
+<footer class="site-footer">
+  <hr />
+  <p>© 2024 AI Tools Hub</p>
+  <p>Developed by <strong>Ashish Kumar</strong></p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
