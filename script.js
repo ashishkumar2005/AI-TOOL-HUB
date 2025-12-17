@@ -1,19 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const cards = document.querySelectorAll(".card");
 
-    searchInput.addEventListener("keyup", function() {
-        let filter = this.value.toLowerCase();
+    let debounceTimer;
 
-        cards.forEach(card => {
-            let title = card.querySelector("h2").innerText.toLowerCase();
-            let links = Array.from(card.querySelectorAll("a")).map(a => a.innerText.toLowerCase());
+    searchInput.addEventListener("input", () => {
+        clearTimeout(debounceTimer);
 
-            if (title.includes(filter) || links.some(link => link.includes(filter))) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
+        debounceTimer = setTimeout(() => {
+            const query = searchInput.value.toLowerCase().trim();
+
+            cards.forEach(card => {
+                const title = card.querySelector("h2")?.innerText.toLowerCase() || "";
+                const linksText = Array.from(card.querySelectorAll("a"))
+                    .map(link => link.innerText.toLowerCase())
+                    .join(" ");
+
+                const isMatch =
+                    title.includes(query) || linksText.includes(query);
+
+                card.classList.toggle("hidden", !isMatch);
+            });
+        }, 200); // debounce delay
     });
 });
