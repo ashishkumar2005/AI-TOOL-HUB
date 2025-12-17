@@ -1,14 +1,22 @@
-/* ================= RESET & VARIABLES ================= */
+/* ===================================================
+   GLOBAL RESET & VARIABLES
+=================================================== */
 :root {
-    --primary: #3aa8ff;
-    --secondary: #1f3b73;
+    --primary-color: #4f9cff;
+    --secondary-color: #1f3b73;
+    --accent-color: #6cc4ff;
+
     --bg-gradient: linear-gradient(135deg, #1f3b73, #2c7da0);
     --glass-bg: rgba(255, 255, 255, 0.15);
-    --text-light: #ffffff;
+
+    --text-main: #ffffff;
     --text-muted: #dcdcdc;
-    --radius: 16px;
+
+    --radius-lg: 18px;
+    --radius-sm: 12px;
+
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
     --transition: 0.3s ease;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -17,94 +25,117 @@
     box-sizing: border-box;
 }
 
+/* ===================================================
+   BODY
+=================================================== */
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-gradient);
-    color: var(--text-light);
+    color: var(--text-main);
     min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
+/* ===================================================
+   HEADER
+=================================================== */
 .site-header {
-    padding: 60px 20px 40px;
-    text-align: center;
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
+    padding: 60px 20px 45px;
+    text-align: center;
 }
 
 .site-header h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
 .site-header p {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 1.1rem;
     color: var(--text-muted);
 }
 
-/* ================= SEARCH ================= */
+/* ===================================================
+   SEARCH SECTION
+=================================================== */
 .search-section {
-    margin: 30px auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 35px auto;
+    padding: 0 15px;
 }
 
 #searchInput {
-    width: min(90%, 420px);
-    padding: 14px 20px;
-    border-radius: 40px;
+    width: 100%;
+    max-width: 420px;
+    padding: 14px 22px;
+    border-radius: 50px;
     border: none;
     outline: none;
     font-size: 1rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-soft);
     transition: var(--transition);
 }
 
-#searchInput:focus {
-    transform: scale(1.03);
+#searchInput::placeholder {
+    color: #777;
 }
 
-/* ================= MAIN GRID ================= */
+#searchInput:focus {
+    transform: scale(1.04);
+}
+
+/* ===================================================
+   MAIN GRID
+=================================================== */
 .container {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    gap: 26px;
 }
 
-/* ================= CARD ================= */
+/* ===================================================
+   CARD
+=================================================== */
 .card {
     background: var(--glass-bg);
-    backdrop-filter: blur(14px);
-    border-radius: var(--radius);
-    padding: 24px;
+    backdrop-filter: blur(16px);
+    border-radius: var(--radius-lg);
+    padding: 26px 22px;
+    box-shadow: var(--shadow-soft);
     text-align: center;
-    box-shadow: var(--shadow);
     transition: var(--transition);
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
 .card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 18px;
 }
 
-/* ================= LINKS ================= */
+/* ===================================================
+   CARD LINKS
+=================================================== */
 .card a {
     display: block;
+    text-decoration: none;
+    color: var(--text-main);
     padding: 12px;
     margin: 10px 0;
     border-radius: 30px;
-    text-decoration: none;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     font-weight: 500;
-    background: linear-gradient(45deg, var(--primary), #6bc1ff);
-    color: white;
     transition: var(--transition);
 }
 
@@ -113,23 +144,48 @@ body {
     opacity: 0.95;
 }
 
-/* ================= FOOTER ================= */
+/* ===================================================
+   FOOTER
+=================================================== */
 .site-footer {
-    margin-top: 40px;
-    padding: 24px;
+    margin-top: 50px;
+    padding: 26px 15px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.25);
     color: var(--text-muted);
     font-size: 0.95rem;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
+.site-footer strong {
+    color: #ffffff;
+}
+
+/* ===================================================
+   UTILITY CLASSES
+=================================================== */
+.hidden {
+    display: none !important;
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+@media (max-width: 768px) {
     .site-header {
-        padding: 40px 15px;
+        padding: 45px 15px 35px;
     }
 
     .card {
-        padding: 20px;
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header h1 {
+        font-size: 2rem;
+    }
+
+    .site-header p {
+        font-size: 1rem;
     }
 }
